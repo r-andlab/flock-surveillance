@@ -59,11 +59,11 @@ def duckduckgo_search(search_terms) -> Set[str]:
     print(f"\n Found {len(search_terms)} search_terms from DuckDuckGo")
     return search_terms
 
-if __name__ == "__main__":
-    with open("generated_search_terms.txt", "r") as f:
-        searches = f.readlines()
+SEARCH_TERM_PATH = "../data/search_terms.txt"
 
-    # repeat scraping exercise due to varying search results
+if __name__ == "__main__":
+    with open(SEARCH_TERM_PATH, "r") as f:
+        searches = f.readlines()
     existing_pages = duckduckgo_search(searches)
 
     with open("existing-pages.txt", "a") as fout:
