@@ -3,9 +3,9 @@ from typing import Set
 import time
 import re
 
-def duckduckgo_search(urls=set()) -> Set[str]:
+def duckduckgo_search(urls) -> Set[str]:
     """
-    Searches DuckDuckGo for all tranparency portal URLs.
+    Searches DuckDuckGo for all transparency portal URLs.
     """
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=False)
@@ -21,7 +21,7 @@ def duckduckgo_search(urls=set()) -> Set[str]:
         # get all URls matching URL pattern
         pattern = r'https://transparency\.flocksafety\.com/([a-z\-]+)'
         
-        # Keep clicking "More results" to get more pages
+        # Keep clicking "more results" to get more pages
         # Limit of 100 pages--currently only finding 41 pages
         for _ in range(100):  
             # print(f"Scanning page {page_num + 1}...")
@@ -30,6 +30,7 @@ def duckduckgo_search(urls=set()) -> Set[str]:
             html = page.content()
             matches = re.findall(pattern, html)
             
+            # filter out page formatting/design/logistics
             for match in matches:
                 if match not in ['fonts', 'assets', 'static', 'cdn']:
                     url = f'https://transparency.flocksafety.com/{match}'
@@ -37,7 +38,7 @@ def duckduckgo_search(urls=set()) -> Set[str]:
                         urls.add(url)
                         # print(f"\tFound: {url}")
             
-            # Try to click "More results" button
+            # try to click "more results" button
             try:
                 more_button = page.locator('a.result--more__btn, button:has-text("More results")')
                 if more_button.count() > 0:
@@ -71,7 +72,7 @@ if __name__ == "__main__":
         if len(all_urls) == len(curr_urls):
             same = True
 
-    with open("flock-urls.txt", "a") as fout:
+    with open("../data/sample-flock-urls.txt", "a") as fout:
         for url in all_urls:
             fout.write(f"{url}\n")
-    print("Wrote URLs to flock-urls.txt.\n")
+    print("Wrote URLs to sample-flock-urls.txt.\n")

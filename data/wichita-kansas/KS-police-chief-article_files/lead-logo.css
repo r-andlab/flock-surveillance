@@ -1,0 +1,6 @@
+.header > h2, header .kicker.h6 {
+  display: none;
+}
+lead-logo {
+  margin: var(--lead-logo-margin, 4px 2px) !important;
+}
