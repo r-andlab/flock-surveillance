@@ -23,8 +23,8 @@ def main():
             county_clean = clean(county_name)
 
             search_terms.update([
-                f"{city_clean},{state_clean},pd",
-                f"{county_clean},{state_clean},pd",
+                f"{city_clean},{state_clean}",
+                f"{county_clean},{state_clean}",
             ])
 
     # Save results

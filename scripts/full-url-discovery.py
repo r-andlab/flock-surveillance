@@ -3,60 +3,87 @@ from typing import Set
 import time
 import re
 
-def duckduckgo_search(search_terms) -> Set[str]:
+LOG_FILE_PATH = "./logs/full-url-discovery-search.txt"
+# each session ID will get a unique IP
+
+PROXY = {
+    'server': 'brd.superproxy.io:33335',
+    'username': f'brd-customer-hl_489430ac-zone-residential_proxy1-session-{0}',
+    'password': 'l6y5810wob0y'
+}
+
+def duckduckgo_search(search_terms, session_id=0) -> Set[str]:
     """
     Searches DuckDuckGo for all transparency portal search terms.
     """
-    with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False)
-        page = browser.new_page()
-        discovered_urls = set()
+    discovered_urls = set()
+
+    # enable restarting where we left off in case of interruptions
+    with open(LOG_FILE_PATH, "r") as fout:
+        num_searches = len(fout.readlines())
+        if num_searches > 0:
+            start = num_searches - 1
+        else:
+            start = 0
+
+    # search brave for corresponding flock portal
+    with open(LOG_FILE_PATH, "a") as fout:
+        with sync_playwright() as p:
+            # start chrome browser window with proxy configuration
+            browser = p.chromium.launch(headless=False, proxy=PROXY)
+            context = browser.new_context(ignore_https_errors=True)
+            page = context.new_page()
         
-        for search in search_terms:
-            # search DuckDuckGo for flock safety sites
-            found = False
-            search = search.strip()
-            place, state, pd = search.split(",")
-            search_query = "site:transparency.flocksafety.com/"
-            page.goto(f"https://duckduckgo.com/?q={search_query}")
-            
-            # wait for page to load
-            page.wait_for_load_state('networkidle')
-            
-            # get all search_terms matching URL pattern
-            # todo: modify pattern
-            pattern = r'https://transparency\.flocksafety\.com/([a-z0-9\-\_]+)'
-            
-            # Keep clicking "more results" to get more pages
-            # Limit of 100 pages--currently only finding 41 pages
-            for _ in range(3):  
-                # print(f"Scanning page {page_num + 1}...")
-                more_button = page.locator('a.result--more__btn, button:has-text("More results")')
-                if more_button.count() > 0:
-                    more_button.first.click()
-                    time.sleep(2)
-                else:
-                    print("No more results found.")
-                    break
+            for i in range(start, len(search_terms)):
+                # search DuckDuckGo for flock safety sites
+                search = search_terms[i]
+                found = False
+                search = search.strip()
+                place, state = search.split(",")
+
+                url = "https://search.brave.com/search?q=site%3Ahttps%3A%2F%2Ftransparency.flocksafety.com%2F+"
+                page.goto(f"{url}+{place}+{state}&source=web")
                 
-            # Get all transparency portal links on the results page
-            html = page.content()
-            sites = re.findall(pattern, html) #e.g. santa-barbara-pd-ca
+                # wait for page to load
+                page.wait_for_load_state('domcontentloaded')
+
+                # wait for search results to appear (#results is brave results container)
+                page.wait_for_selector('#results', timeout=10000)           
+                
+                # get all search_terms matching URL pattern
+                # do not make less strict or it will grab html data
+                pattern = r'https://transparency\.flocksafety\.com/([a-z0-9\-\_]+)'
             
-            # check for corresponding portal
-            for site in sites:
-                if place in site and state in site and pd in site:
-                    url = f'https://transparency.flocksafety.com/{site}'
-                    if url not in discovered_urls:
-                        discovered_urls.add(url)
-                        found = True
-                        print(f"Portal for {search} found: {url}")
-            if not found:
-                print(f"Portal for {search} not found")
-                   
-        browser.close()
+                    
+                # Get all transparency portal links on the results page
+                html = page.content()
+                sites = re.findall(pattern, html) #e.g. santa-barbara-pd-ca
+                
+                # check for corresponding portal and log results
+                for site in sites:
+                    if place in site and state in site:
+                        url = f'https://transparency.flocksafety.com/{site}'
+                        if url not in discovered_urls:
+                            discovered_urls.add(url)
+                            found = True
+                            print(f"FOUND: Portal for {search}: {url}")
+                            fout.write(f"FOUND: {search}: {url}\n")
+                if not found:
+                    print(f"Not found: Portal for {search}")
+                    fout.write(f"NOT FOUND: {search}\n")
+
+                # rotate proxies every 40 searches
+                if i % 40 == 0:
+                    browser.close()
+                    session_id += 1
+                    PROXY['username'] = f'brd-customer-hl_489430ac-zone-residential_proxy1-session-{session_id}'
+                    browser = p.chromium.launch(headless=False, proxy=PROXY)
+                    context = browser.new_context(ignore_https_errors=True)
+                    page = context.new_page()
+                    
+            browser.close()
     
-    print(f"\n Found {len(search_terms)} search_terms from DuckDuckGo")
+    print(f"\n Done! Found {len(search_terms)} search_terms from DuckDuckGo")
     return search_terms
 
 SEARCH_TERM_PATH = "../data/search_terms.txt"
