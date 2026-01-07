@@ -1,6 +1,0 @@
-FOUND: eugene,or: https://transparency.flocksafety.com/eugene-or-pd
-FOUND: eugene,or: https://transparency.flocksafety.com/eugene-or-pd
-FOUND: santa-cruz,ca: https://transparency.flocksafety.com/santa-cruz-ca-pd
-FOUND: berkeley,ca: https://transparency.flocksafety.com/berkeley-ca-pd
-FOUND: el-cerrito,ca: https://transparency.flocksafety.com/el-cerrito-ca-pd
-NOT FOUND: fayette,pa

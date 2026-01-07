@@ -54,11 +54,11 @@ pierce,wa
 milford,ia
 runge,tx
 spencer,va
-wheatfield,in
 genoa,nv
 dover,nj
 russian-mission,ak
 lenox,tn
+wheatfield,in
 frederick,co
 melba,id
 ah-gwah-ching,mn
@@ -82,7 +82,6 @@ pendleton,wv
 chualar,ca
 chatsworth,ga
 harrison-valley,pa
-massena,ny
 cora,wy
 edmund,wi
 grenville,sd
@@ -99,6 +98,7 @@ east-ellsworth,wi
 mellenville,ny
 memphis,mi
 saint-agatha,me
+massena,ny
 selma,va
 hanalei,hi
 bellingham,mn
