@@ -6,6 +6,7 @@ import re
 # Remember to change file paths for each experiment!
 LOG_FILE_PATH = "./logs/full-url-discovery-google.txt"
 OUTPUT_FILE_PATH = "../data/discovered_urls_google.txt"
+SEARCH_TERM_PATH = "../data/search_terms.txt"
 
 PROXY = {
     'server': 'http://brd.superproxy.io:33335',
@@ -30,6 +31,8 @@ def google_search(search_terms, session_id=time.time()) -> Set[str]:
     # immediately logging attempts and results
     f_results = open(OUTPUT_FILE_PATH, "a")
     fout = open(LOG_FILE_PATH, "a")
+    urls = set() # url must be embedded multiple places because it is found 3 times in results;
+                # need a set to avoid duplicate logging/output
 
     # search Google for corresponding flock portal
     with sync_playwright() as p:
@@ -47,12 +50,20 @@ def google_search(search_terms, session_id=time.time()) -> Set[str]:
             place, state = search_terms[i].strip().split(",")
             found = False
 
-            # Google search URL with site: operator
-            url = f"site:https://transparency.flocksafety.com/+{place}+{state}"
+            # URL for Google search of form 'site:https://transparency.flocksafety.com/ +eugene+or'
+            preface = "https://www.google.com/search?q=site%3Ahttps%3A%2F%2Ftransparency.flocksafety.com%2F"
+            url = f"{preface}+%2B{place}%2B{state}"
 
             # Google uses either #search or #rso for search container
             try:
                 page.goto(url)
+                page.screenshot(path=f"debug_screenshot_{i}.png")
+    
+                # PRINT THE PAGE TITLE
+                print(f"Page title: {page.title()}")
+                
+                # PRINT THE URL (in case of redirects)
+                print(f"Current URL: {page.url}")
                 try:
                     page.wait_for_selector('#search', timeout=3000)
                 except:
@@ -70,7 +81,7 @@ def google_search(search_terms, session_id=time.time()) -> Set[str]:
                     user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
                 )
                 page = context.new_page()
-                f_results.write(f"TIMEOUT: {place}, {state}.\n")
+                f_out.write(f"TIMEOUT: {place}, {state}.\n")
                 continue
             
             # get all search_terms matching URL pattern.
@@ -83,14 +94,18 @@ def google_search(search_terms, session_id=time.time()) -> Set[str]:
             
             # check for corresponding portal and log results
             for site in sites:
-                if place in site and state in site:
+                if f"{place}-" in site and f"-{state}" in site: # always a dash separating place and state
                     url = f'https://transparency.flocksafety.com/{site}'
-                    found = True
-                    print(f"FOUND: Portal for {search}: {url}")
-                    fout.write(f"FOUND: {search}: {url}\n")
-                    fout.flush()
-                    f_results.write(f"{url}\n")
-                    f_results.flush()
+                    if url not in urls:
+                        print(url)
+                        urls.add(url) # avoid duplicate logging
+                        found = True
+                        print(f"FOUND: Portal for {search}: {url}")
+                        fout.write(f"FOUND: {search}: {url}\n")
+                        fout.flush()
+                        f_results.write(f"{url}\n")
+                        f_results.flush()
+                       
             
             # if not found, report and enter in logs
             if not found:
@@ -98,7 +113,7 @@ def google_search(search_terms, session_id=time.time()) -> Set[str]:
                 fout.write(f"NOT FOUND: {search}\n")
                 fout.flush()
 
-            # rotate proxies every 3 searches (more frequently than Brave)
+            # rotate proxies every 3 searches, more frequently than Brave bc Google is stricter
             if i > 0 and i % 3 == 0:
                 browser.close()
                 PROXY['username'] = f'brd-customer-hl_489430ac-zone-residential_proxy1-session-{time.time()}'
@@ -131,6 +146,7 @@ def brave_search(search_terms, session_id=time.time()) -> Set[str]:
     # enable immediate logging of attempts and results
     f_results = open(OUTPUT_FILE_PATH, "a")
     fout = open(LOG_FILE_PATH, "a")
+    urls = set() # avoid duplicate logging
 
     # search brave for corresponding flock portal
     with sync_playwright() as p:
@@ -178,12 +194,13 @@ def brave_search(search_terms, session_id=time.time()) -> Set[str]:
             for site in sites:
                 if place in site and state in site:
                     url = f'https://transparency.flocksafety.com/{site}'
-                    found = True
-                    print(f"FOUND: Portal for {search}: {url}")
-                    fout.write(f"FOUND: {search}: {url}\n")
-                    fout.flush()
-                    f_results.write(f"{url}\n")
-                    f_results.flush()
+                    if url not in urls:
+                        found = True
+                        print(f"FOUND: Portal for {search}: {url}")
+                        fout.write(f"FOUND: {search}: {url}\n")
+                        fout.flush()
+                        f_results.write(f"{url}\n")
+                        f_results.flush()
             
             # if not found, report and enter in logs
             if not found:
@@ -191,8 +208,8 @@ def brave_search(search_terms, session_id=time.time()) -> Set[str]:
                 fout.write(f"NOT FOUND: {search}\n")
                 fout.flush()
 
-            # rotate proxies every 5 searches based on timeouts
-            if i > 0 and i % 5 == 0:
+            # rotate proxies every 3 searches based on timeouts
+            if i > 0 and i % 3 == 0:
                 browser.close()
                 PROXY['username'] = f'brd-customer-hl_489430ac-zone-residential_proxy1-session-{time.time()}'
                 browser = p.chromium.launch(headless=False, proxy=PROXY)
@@ -205,9 +222,7 @@ def brave_search(search_terms, session_id=time.time()) -> Set[str]:
 
     print(f"\n Done!\n")
 
-SEARCH_TERM_PATH = "../data/retry_terms.txt"
-
 if __name__ == "__main__":
     with open(SEARCH_TERM_PATH, "r") as f:
         searches = f.readlines()
-    brave_search(searches)
+    google_search(searches)
