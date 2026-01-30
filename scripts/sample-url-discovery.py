@@ -19,14 +19,17 @@ def duckduckgo_search(urls) -> Set[str]:
         page.wait_for_load_state('networkidle')
         
         # get all URls matching URL pattern
+        # do not recommend changing the pattern to be less strict in
+        # case URLs are not in expected format, as we end up pulling a
+        # lot of unrelated information.
         pattern = r'https://transparency\.flocksafety\.com/([a-z\-]+)'
         
-        # Keep clicking "more results" to get more pages
-        # Limit of 100 pages--currently only finding 41 pages
+        # keep clicking more results
+        # limit of 100 pages--currently only finding 41 pages
         for _ in range(100):  
             # print(f"Scanning page {page_num + 1}...")
             
-            # Get all links on the page
+            # get all transparency portal links on the page
             html = page.content()
             matches = re.findall(pattern, html)
             
@@ -48,6 +51,8 @@ def duckduckgo_search(urls) -> Set[str]:
                     print("No 'More results' button found")
                     break
             except Exception as e:
+                # last page will not have "more results" button; handle
+                # that and then leave
                 print(f"Could not load more results: {e}")
                 break
         
