@@ -53,7 +53,7 @@ def main():
     cities = get_cities(CITIES_FILE)
     city, county, college, reservation, airport, other, total = check_links(LINK_FILE, cities)
     # based on manual inspection of other, most are oddly formatted cities/towns
-    city += len(other) - 10
+    city += len(other) - 10 # based on manual inspection--definitely change for other data sources.
     other = 10
     print(f"city: {city}")
     print(f"county: {county}")
