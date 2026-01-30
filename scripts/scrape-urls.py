@@ -41,7 +41,6 @@ def scrape_flock_data(page, url):
 def scrape_multiple_sites(urls, output_file='flock-data.csv'):
     """
     Scrapes multiple transparency portals and saves to csv.
-    urls: List of URLs to scrape
     """
     all_data = {}
     
@@ -51,23 +50,25 @@ def scrape_multiple_sites(urls, output_file='flock-data.csv'):
         page = browser.new_page()
         
         for i, url in enumerate(urls[:10]):
+            # track status to alert if we get stuck due to Cloudflare protection
             print(f"Scraping {i+1}/{len(urls)}: {url}")
+            
             site_data = scrape_flock_data(page, url)
             _, place = url.split("https://transparency.flocksafety.com/")
+            
             # associate page data with url in dict
             all_data[place.strip()] = site_data
             
-            # polite delay
+            # polite delay; unsure if still needed.
             # matters less now that we do proxy rotation
             time.sleep(5)
         
         browser.close()
     
     df = pd.DataFrame.from_dict(all_data)
-    print(df)
+    # print(df)
     df.to_csv(output_file)
 
-# Example usage
 if __name__ == "__main__":
     with open('./flock-urls.txt', 'r') as f:
         urls = f.readlines()
