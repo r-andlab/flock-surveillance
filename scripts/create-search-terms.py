@@ -1,5 +1,6 @@
 import csv
 
+# to match Flock URLs, replace spaces with dashes
 def clean(s):
     return s.strip().lower().replace(" ", "-")
 
@@ -10,11 +11,14 @@ def main():
     # Build URL list
     with open(CITY_FILE, "r") as f:
         reader = csv.reader(f, delimiter="\t")
+        
         for row in reader:
-            if len(row) != 12:
+            # if row properly formatted, there should be 12 fields
+            if len(row) != 12: 
                 continue
-            _, _, city, _, state, county_name, *_ = row
 
+            # need non-empty fields
+            _, _, city, _, state, county_name, *_ = row
             if not city or not state or not county_name:
                 continue
 
