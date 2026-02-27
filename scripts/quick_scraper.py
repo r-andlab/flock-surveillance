@@ -19,6 +19,7 @@ if __name__ == '__main__':
     scraped_num = data['summary']['total_portals_found']
 
     # combine with existing list
+    # brave
     with open("../data/discovered_urls_brave.txt") as f:
         brave_links = 0
         for i in f:
@@ -27,8 +28,16 @@ if __name__ == '__main__':
                 print(link)
                 links.append(link)
                 brave_links += 1
+    with open("../data/discovered_urls_brave_retries.txt") as f:
+        for i in f:
+            link = i.replace('\n', '')
+            if link not in links and "transparency.flocksafety.com" in link:
+                print(link)
+                links.append(link)
+                brave_links += 1
     print("Brave: " + str(brave_links) + " new links\n")
 
+    # google
     with open("../data/discovered_urls_google.txt") as f:
         google_links = 0
         for i in f:
@@ -37,7 +46,18 @@ if __name__ == '__main__':
                 print(link)
                 links.append(link)
                 google_links += 1
-    print("Google: " + str(google_links) + " new links")
+    print("Google: " + str(google_links) + " new links\n")
+
+    # sample_urls
+    with open("../data/sample-flock-urls.txt") as f:
+        sample_links = 0
+        for i in f:
+            link = i.replace('\n', '')
+            if link not in links and "transparency.flocksafety.com" in link:
+                print(link)
+                links.append(link)
+                sample_links += 1
+    print("Sample URLS: " + str(sample_links) + " new links\n")
 
     with open("../data/total_urls.txt", "w") as f:
         links.sort()
