@@ -1,7 +1,7 @@
-'''
+"""
 This script scrapes EyesOnFlock's API for Flock transparency portals, and combines them with the existing discovered_urls_brave.txt and discovered_urls_google.txt
 to create total_urls.txt, a list of all transparency portals found.
-'''
+"""
 import requests
 
 if __name__ == '__main__':

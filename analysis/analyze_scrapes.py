@@ -4,21 +4,36 @@ import matplotlib.pylab as plt
 
 SCRAPE_DATA = "../data/flock-data.csv"
 
-df = pd.read_csv(SCRAPE_DATA)
-days = df['Data retention (in days)'].values
+def normalize_label(label):
+    label = label.strip()
+
+    if label.lower().startswith("organizations granted access"):
+        return "Organizations granted access"
+
+    if label.lower().startswith("organizations sharing their data"):
+        return "Organizations sharing data"
+
+    return label
+
+df = pd.read_csv(SCRAPE_DATA, index_col=0)
+df = df[~df.index.isna()]
+df.index = [normalize_label(label) for label in df.index]
+df = df.drop(index=['url', 'error'], errors='ignore')
+df = df.groupby(df.index).first()
+days = df.loc['Data retention (in days)'].values
 sum = 0
 for item in days:
     if type(item) is str:
         if "days" in item and "infinity" not in item.lower(): # some just say -infinity
             num, string = item.split(" days")
             sum += float(num)
-median = sum / len(days)
-print(f"Median days of data retention: {median}")
-print(f"Number of unique fields: {len(df.columns)}")
+mean = sum / len(days)
+print(f"Mean days of data retention: {mean}")
+print(f"Number of unique fields: {len(df.index)}")
 
-category_counts = df.count().sort_values(ascending=False)
-top_cats = category_counts[1:16]
-# print(category_counts[:20])
+category_counts = df.count(axis=1).sort_values(ascending=False)
+top_cats = category_counts[:20]
+print(category_counts[:24])
 # What's Detected                     581
 # Prohibited Uses                     579
 # What's Not Detected                 578
@@ -34,7 +49,7 @@ top_cats = category_counts[1:16]
 # Public Search Audit                             184
 # Unique vehicles detected in the last 30 days     99
 
-entry_counts = df.count(axis=1).sort_values(ascending=False)
+entry_counts = df.count(axis=0).sort_values(ascending=False)
 print(f"Median number of fields filled is {entry_counts.median()}")
 # print(entry_counts[:5])
 # 224    26, ferndale-mi

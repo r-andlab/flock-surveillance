@@ -1,7 +1,9 @@
 from playwright.sync_api import sync_playwright
+from playwright_stealth import Stealth
 import csv
 import time
 import pandas as pd
+import random
 
 # def is_bad_xml(driver):
 #     """Detect XML errors to avoid false positives."""
@@ -11,6 +13,12 @@ import pandas as pd
 
 #     except Exception:
 #         return False
+
+PROXY = {
+    'server': 'http://brd.superproxy.io:33335',
+    'username': f'brd-customer-hl_489430ac-zone-residential_proxy1-session-{time.time()}',
+    'password': 'l6y5810wob0y'
+}
 
 
 def scrape_flock_data(page, url):
@@ -38,7 +46,7 @@ def scrape_flock_data(page, url):
         print(f"Error scraping {url}: {e}")
         return {'url': url, 'error': str(e)}
 
-def scrape_multiple_sites(urls, output_file='flock-data.csv'):
+def scrape_multiple_sites(urls, output_file='../data/flock-data.csv'):
     """
     Scrapes multiple transparency portals and saves to csv.
     """
@@ -46,10 +54,20 @@ def scrape_multiple_sites(urls, output_file='flock-data.csv'):
     
     with sync_playwright() as p:
         # launch browser once for all sites
-        browser = p.chromium.launch(headless=True)
-        page = browser.new_page()
+        browser = p.chromium.launch(headless=False, proxy=PROXY)
+        context = browser.new_context(
+            ignore_https_errors=True,
+            user_agent=(
+                    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                    "AppleWebKit/537.36 (KHTML, like Gecko) "
+                    "Chrome/120.0.0.0 Safari/537.36"
+                )
+        )
+        page = context.new_page()
+        stealth = Stealth()
+        stealth.apply_stealth_sync(page)
         
-        for i, url in enumerate(urls[:10]):
+        for i, url in enumerate(urls):
             # track status to alert if we get stuck due to Cloudflare protection
             print(f"Scraping {i+1}/{len(urls)}: {url}")
             
@@ -61,7 +79,20 @@ def scrape_multiple_sites(urls, output_file='flock-data.csv'):
             
             # polite delay; unsure if still needed.
             # matters less now that we do proxy rotation
-            time.sleep(5)
+            if i > 0 and i % 3 == 0:
+                print("Rotating proxy")
+                context.close()
+                browser.close()
+                PROXY['username'] = f'brd-customer-hl_489430ac-zone-residential_proxy1-session-{time.time()}'
+                browser = p.chromium.launch(headless=False, proxy=PROXY)
+                context = browser.new_context(
+                    ignore_https_errors=True,
+                    user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+                )
+                page = context.new_page()
+                stealth.apply_stealth_sync(page)
+
+            time.sleep(random.uniform(3, 6))
         
         browser.close()
     
@@ -70,6 +101,6 @@ def scrape_multiple_sites(urls, output_file='flock-data.csv'):
     df.to_csv(output_file)
 
 if __name__ == "__main__":
-    with open('./flock-urls.txt', 'r') as f:
-        urls = f.readlines()
+    with open('../data/total_urls.txt', 'r') as f:
+        urls = [line.strip() for line in f if line.strip()]
     data = scrape_multiple_sites(urls)
