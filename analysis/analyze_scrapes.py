@@ -113,20 +113,22 @@ def analyze_numeric_field(df, field_name):
     print(f"{field_name}: total = {total_val:.2f}" if not np.isnan(total_val) else f"{field_name}: no valid numeric data")
     return mean_val
 
+def data_retention(df):
+    days = df.loc['Data retention (in days)'].values
+    sum = 0
+    for item in days:
+        if type(item) is str:
+            if "days" in item and "infinity" not in item.lower(): # some just say -infinity
+                num, string = item.split(" days")
+                sum += float(num)
+    mean = sum / len(days)
+    print(f"Mean days of data retention: {mean}")
+
 df = pd.read_csv(SCRAPE_DATA, index_col=0)
 df = df[~df.index.isna()]
 df.index = [normalize_label(label) for label in df.index]
 df = df.drop(index=['url', 'error'], errors='ignore')
 df = df.groupby(df.index).first()
-days = df.loc['Data retention (in days)'].values
-sum = 0
-for item in days:
-    if type(item) is str:
-        if "days" in item and "infinity" not in item.lower(): # some just say -infinity
-            num, string = item.split(" days")
-            sum += float(num)
-mean = sum / len(days)
-print(f"Mean days of data retention: {mean}")
 print(f"Number of unique fields: {len(df.index)}")
 
 category_counts = df.count(axis=1).sort_values(ascending=False)
@@ -168,7 +170,7 @@ analyze_numeric_field(df, "Vehicles detected in the last 30 days")
 analyze_numeric_field(df, "Hotlist hits in the last 30 days")
 analyze_numeric_field(df, "Searches in the last 30 days")
 analyze_numeric_field(df, "Number of LPR and other cameras")
-
+data_retention(df)
 
 plt.style.use('ggplot')
 plt.bar(top_cats.index.values, top_cats.values, color = "darkseagreen")
