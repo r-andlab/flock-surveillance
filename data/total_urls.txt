@@ -2,6 +2,7 @@ https://transparency.flocksafety.com/-el-cajon-pd-ca
 https://transparency.flocksafety.com/-spokane-county-wa-so
 https://transparency.flocksafety.com/abington-ma-pd
 https://transparency.flocksafety.com/accomack-county-va-so
+https://transparency.flocksafety.com/ahoskie-nc-pd
 https://transparency.flocksafety.com/akron-oh-pd
 https://transparency.flocksafety.com/alameda-ca-pd
 https://transparency.flocksafety.com/alameda-county-ca-so
@@ -45,6 +46,7 @@ https://transparency.flocksafety.com/avon-in-pd
 https://transparency.flocksafety.com/avon-lake-oh-pd
 https://transparency.flocksafety.com/bainbridge-township-oh-pd
 https://transparency.flocksafety.com/bakersfield-ca-pd
+https://transparency.flocksafety.com/baldwin-park-ca-pd
 https://transparency.flocksafety.com/baraboo-wi-pd
 https://transparency.flocksafety.com/barling-ar-pd
 https://transparency.flocksafety.com/barrow-county-ga-so
@@ -69,12 +71,14 @@ https://transparency.flocksafety.com/berkeley-ca-pd
 https://transparency.flocksafety.com/berlin-ct-pd
 https://transparency.flocksafety.com/berwyn-il-pd
 https://transparency.flocksafety.com/bessemer-city-nc-pd
+https://transparency.flocksafety.com/bettendorf-ia-pd
 https://transparency.flocksafety.com/beverly-hills-ca-pd
 https://transparency.flocksafety.com/blaine-mn-pd
 https://transparency.flocksafety.com/blairsville-ga-pd
 https://transparency.flocksafety.com/blue-ash-oh-pd
 https://transparency.flocksafety.com/blue-island-il-pd
 https://transparency.flocksafety.com/blue-springs-mo-pd
+https://transparency.flocksafety.com/bluefield-va-pd
 https://transparency.flocksafety.com/bluffton-in-pd
 https://transparency.flocksafety.com/boardman-township-oh-pd
 https://transparency.flocksafety.com/bonney-lake-wa-pd
@@ -107,6 +111,7 @@ https://transparency.flocksafety.com/carmel-ca-pd
 https://transparency.flocksafety.com/carroll-county-va-so
 https://transparency.flocksafety.com/casa-grande-az-pd
 https://transparency.flocksafety.com/case-western-reserve-university-oh-pd
+https://transparency.flocksafety.com/castle-hills-tx-pd
 https://transparency.flocksafety.com/castle-rock-co-pd
 https://transparency.flocksafety.com/catawba-nation-tribal-sc-pd-
 https://transparency.flocksafety.com/cathedral-city-ca-pd
@@ -139,6 +144,8 @@ https://transparency.flocksafety.com/city-of-riverside-ca-pd-
 https://transparency.flocksafety.com/city-of-willard-mo-pd
 https://transparency.flocksafety.com/claflin-university-sc-pd
 https://transparency.flocksafety.com/clark-county-oh-so
+https://transparency.flocksafety.com/clayton-de-pd
+https://transparency.flocksafety.com/clear-lake-ia-pd
 https://transparency.flocksafety.com/clearlake-ca-pd
 https://transparency.flocksafety.com/cleveland-county-so-
 https://transparency.flocksafety.com/clinton-ct-pd
@@ -189,12 +196,14 @@ https://transparency.flocksafety.com/dane-county-wi-so
 https://transparency.flocksafety.com/danville-ca-pd
 https://transparency.flocksafety.com/danville-va-pd
 https://transparency.flocksafety.com/davenport-ia-pd
+https://transparency.flocksafety.com/davidson-nc-pd
 https://transparency.flocksafety.com/davie-county-nc-so
 https://transparency.flocksafety.com/dayton-mn-pd
 https://transparency.flocksafety.com/dayton-oh-pd
 https://transparency.flocksafety.com/defiance-county-oh-so
 https://transparency.flocksafety.com/del-city-ok-pd
 https://transparency.flocksafety.com/delano-ca-pd
+https://transparency.flocksafety.com/delmar-md-pd
 https://transparency.flocksafety.com/delphi-in-pd
 https://transparency.flocksafety.com/denton-tx-pd
 https://transparency.flocksafety.com/denver-co-pd
@@ -232,6 +241,7 @@ https://transparency.flocksafety.com/ellensburg-wa-pd
 https://transparency.flocksafety.com/elmira-city-ny-pd
 https://transparency.flocksafety.com/elyria-oh-pd
 https://transparency.flocksafety.com/emeryville-ca-pd
+https://transparency.flocksafety.com/eminence-ky-pd
 https://transparency.flocksafety.com/emporia-va-pd-
 https://transparency.flocksafety.com/escondido-ca-pd
 https://transparency.flocksafety.com/euclid-oh-pd
@@ -269,8 +279,10 @@ https://transparency.flocksafety.com/forest-heights-md-pd
 https://transparency.flocksafety.com/forest-lake-mn-pd
 https://transparency.flocksafety.com/forest-park-oh-pd
 https://transparency.flocksafety.com/fort-bragg-ca-pd
+https://transparency.flocksafety.com/fort-collins-co-pd
 https://transparency.flocksafety.com/fort-smith-ar-pd
 https://transparency.flocksafety.com/foster-city-ca-pd
+https://transparency.flocksafety.com/fountain-co-pd
 https://transparency.flocksafety.com/fountain-valley-ca-pd
 https://transparency.flocksafety.com/franklin-county-il-so
 https://transparency.flocksafety.com/franklin-ma-pd
@@ -280,12 +292,15 @@ https://transparency.flocksafety.com/franklinton-nc-pd
 https://transparency.flocksafety.com/fredericksburg-city-va-pd
 https://transparency.flocksafety.com/fremont-oh-pd
 https://transparency.flocksafety.com/frisco-tx-pd
+https://transparency.flocksafety.com/front-royal-va-pd
+https://transparency.flocksafety.com/gahanna-oh-pd
 https://transparency.flocksafety.com/galt-ca-pd
 https://transparency.flocksafety.com/garner-nc-pd
 https://transparency.flocksafety.com/gastonia-nc-pd
 https://transparency.flocksafety.com/geneseo-il-pd-
 https://transparency.flocksafety.com/genoa-township-oh-pd-
 https://transparency.flocksafety.com/georgetown-ky-pd
+https://transparency.flocksafety.com/gering-ne-pd-
 https://transparency.flocksafety.com/gilroy-ca-pd
 https://transparency.flocksafety.com/glastonbury-ct-pd
 https://transparency.flocksafety.com/glenarden-md-pd
@@ -306,6 +321,8 @@ https://transparency.flocksafety.com/green-bay-wi-pd
 https://transparency.flocksafety.com/green-brook-twp-nj-pd
 https://transparency.flocksafety.com/greenfield-in-pd
 https://transparency.flocksafety.com/greensboro-nc-pd
+https://transparency.flocksafety.com/groesbeck-tx-pd-
+https://transparency.flocksafety.com/grottoes-va-pd
 https://transparency.flocksafety.com/grove-city-oh-pd
 https://transparency.flocksafety.com/grover-beach-ca-pd
 https://transparency.flocksafety.com/gurnee-il-pd
@@ -390,6 +407,7 @@ https://transparency.flocksafety.com/kings-county-sheriffs-office-ca-
 https://transparency.flocksafety.com/lafayette-la-pd
 https://transparency.flocksafety.com/lafayette-pd-in
 https://transparency.flocksafety.com/lake-bluff-il-pd-
+https://transparency.flocksafety.com/lake-city-mn-pd
 https://transparency.flocksafety.com/lake-county-ca-so
 https://transparency.flocksafety.com/lake-stevens-wa-pd
 https://transparency.flocksafety.com/lakeshore-homes-association-ca-
@@ -409,6 +427,7 @@ https://transparency.flocksafety.com/lewisville-tx-pd
 https://transparency.flocksafety.com/lexington-sc-pd
 https://transparency.flocksafety.com/lincoln-ca-pd
 https://transparency.flocksafety.com/lincoln-county-so-ne
+https://transparency.flocksafety.com/little-rock-ar-pd
 https://transparency.flocksafety.com/live-oak-tx-pd-
 https://transparency.flocksafety.com/livermore-ca-pd
 https://transparency.flocksafety.com/livingston-ca-pd
@@ -452,6 +471,7 @@ https://transparency.flocksafety.com/mcdonough-ga-pd
 https://transparency.flocksafety.com/mchenry-il-pd
 https://transparency.flocksafety.com/mecklenburg-county-va-so
 https://transparency.flocksafety.com/medford-or-pd
+https://transparency.flocksafety.com/medina-mn-pd
 https://transparency.flocksafety.com/medina-wa-pd
 https://transparency.flocksafety.com/menasha-wi-pd
 https://transparency.flocksafety.com/mendocino-county-soca
@@ -470,12 +490,14 @@ https://transparency.flocksafety.com/midlothian-tx-pd
 https://transparency.flocksafety.com/milan-mi-pd
 https://transparency.flocksafety.com/milford-ct-pd
 https://transparency.flocksafety.com/mill-creek-wa-pd
+https://transparency.flocksafety.com/mill-valley-ca-pd
 https://transparency.flocksafety.com/milton-in-pd
 https://transparency.flocksafety.com/mineral-county-nv-so
 https://transparency.flocksafety.com/minerva-park-oh-pd
 https://transparency.flocksafety.com/minster-oh-pd
 https://transparency.flocksafety.com/mint-hill-nc-pd
 https://transparency.flocksafety.com/modoc-county-ca-so
+https://transparency.flocksafety.com/monona-wi-pd
 https://transparency.flocksafety.com/monroe-mi-pd
 https://transparency.flocksafety.com/monroe-wa-pd
 https://transparency.flocksafety.com/monrovia-ca-pd
@@ -485,6 +507,7 @@ https://transparency.flocksafety.com/monte-sereno-ca-pd
 https://transparency.flocksafety.com/monterey-ca-pd
 https://transparency.flocksafety.com/monterey-park-ca-pd
 https://transparency.flocksafety.com/montgomery-twp-nj-pd
+https://transparency.flocksafety.com/monument-co-pd
 https://transparency.flocksafety.com/mooresville-in-pd
 https://transparency.flocksafety.com/mooresville-nc-pd
 https://transparency.flocksafety.com/moorhead-mn-pd
@@ -502,11 +525,14 @@ https://transparency.flocksafety.com/mount-vernon-wa-pd
 https://transparency.flocksafety.com/mountain-view-ca-pd
 https://transparency.flocksafety.com/mt-holly-nc-pd
 https://transparency.flocksafety.com/mt-juliet-tn-pd
+https://transparency.flocksafety.com/mukilteo-wa-pd
 https://transparency.flocksafety.com/muncie-in-pd
+https://transparency.flocksafety.com/mundelein-il-pd
 https://transparency.flocksafety.com/murfreesboro-tn-pd
 https://transparency.flocksafety.com/murrieta-ca-pd
 https://transparency.flocksafety.com/muskegon-mi-pd
 https://transparency.flocksafety.com/muskogee-ok-pd
+https://transparency.flocksafety.com/nags-head-nc-pd
 https://transparency.flocksafety.com/napa-ca-pd
 https://transparency.flocksafety.com/napa-county-ca-so
 https://transparency.flocksafety.com/napoleon-twp-mi-pd
@@ -543,6 +569,7 @@ https://transparency.flocksafety.com/norwalk-oh-pd
 https://transparency.flocksafety.com/norwell-ma-pd
 https://transparency.flocksafety.com/novato-ca-pd
 https://transparency.flocksafety.com/oak-park-il-pd
+https://transparency.flocksafety.com/oak-point-tx-pd-
 https://transparency.flocksafety.com/oakland-ca-pd
 https://transparency.flocksafety.com/oakley-ca-pd
 https://transparency.flocksafety.com/oakmore-ca-
@@ -559,12 +586,14 @@ https://transparency.flocksafety.com/olmsted-falls-oh-pd
 https://transparency.flocksafety.com/olympia-wa-pd-
 https://transparency.flocksafety.com/ontario-ca-pd
 https://transparency.flocksafety.com/ontario-oh-pd
+https://transparency.flocksafety.com/orange-va-pd
 https://transparency.flocksafety.com/oregon-oh-pd
 https://transparency.flocksafety.com/oro-valley-az-pd
 https://transparency.flocksafety.com/oroville-ca-pd
 https://transparency.flocksafety.com/osage-county-ok-so
 https://transparency.flocksafety.com/oshkosh-wi-pd
 https://transparency.flocksafety.com/ottawa-county-oh-so
+https://transparency.flocksafety.com/owatonna-mn-pd
 https://transparency.flocksafety.com/oxnard-ca-pd-
 https://transparency.flocksafety.com/pacific-grove-ca-pd
 https://transparency.flocksafety.com/pacifica-ca-pd
@@ -580,6 +609,7 @@ https://transparency.flocksafety.com/pawnee-county-ks-so
 https://transparency.flocksafety.com/pawtucket-ri-pd
 https://transparency.flocksafety.com/paxton-il-pd-
 https://transparency.flocksafety.com/payson-az-pd
+https://transparency.flocksafety.com/pea-ridge-ar-pd
 https://transparency.flocksafety.com/peotone-il-pd-
 https://transparency.flocksafety.com/perry-county-oh-so
 https://transparency.flocksafety.com/petaluma-ca-pd
@@ -658,6 +688,7 @@ https://transparency.flocksafety.com/saginaw-tx-pd-
 https://transparency.flocksafety.com/saint-johns-az-pd
 https://transparency.flocksafety.com/saint-louis-park-mn-pd
 https://transparency.flocksafety.com/san-bernardino-ca-pd
+https://transparency.flocksafety.com/san-bruno-ca-pd
 https://transparency.flocksafety.com/san-diego-ca-pd
 https://transparency.flocksafety.com/san-francisco-ca-pd
 https://transparency.flocksafety.com/san-gabriel-ca-pd
@@ -718,11 +749,15 @@ https://transparency.flocksafety.com/south-pasadena-ca-pd
 https://transparency.flocksafety.com/south-saint-paul-mn-pd
 https://transparency.flocksafety.com/south-san-francisco-ca-pd
 https://transparency.flocksafety.com/south-sioux-city-ne-pd-
+https://transparency.flocksafety.com/south-tucson-az-pd
+https://transparency.flocksafety.com/southern-shores-nc-pd
 https://transparency.flocksafety.com/spanish-fork-ut-pd
 https://transparency.flocksafety.com/sparks-nv-pd
+https://transparency.flocksafety.com/spring-lake-park-mn-pd
 https://transparency.flocksafety.com/springdale-oh-pd
 https://transparency.flocksafety.com/springfield-il-pd
 https://transparency.flocksafety.com/springfield-or-pd
+https://transparency.flocksafety.com/st-clairsville-oh-pd-
 https://transparency.flocksafety.com/st-cloud-mn-pd
 https://transparency.flocksafety.com/st-francois-county-mo-so
 https://transparency.flocksafety.com/st-helena-ca-pd
@@ -743,6 +778,7 @@ https://transparency.flocksafety.com/stow-ma-pd
 https://transparency.flocksafety.com/suffolk-va-pd
 https://transparency.flocksafety.com/sugar-grove-il-pd-
 https://transparency.flocksafety.com/suisun-city-ca-pd-
+https://transparency.flocksafety.com/sultan-wa-pd
 https://transparency.flocksafety.com/summerset-sd-pd
 https://transparency.flocksafety.com/sumner-wa-pd
 https://transparency.flocksafety.com/sumpter-twp-mi-pd
@@ -781,6 +817,7 @@ https://transparency.flocksafety.com/tucson-az-pd
 https://transparency.flocksafety.com/tukwila-wa-pd
 https://transparency.flocksafety.com/tulare-ca-pd-
 https://transparency.flocksafety.com/tulsa-ok-pd
+https://transparency.flocksafety.com/tx-hallettsville-pd
 https://transparency.flocksafety.com/tx-liberty-pd
 https://transparency.flocksafety.com/ukiah-pd-ca
 https://transparency.flocksafety.com/union-city-ca-pd
@@ -852,6 +889,7 @@ https://transparency.flocksafety.com/wilmington-oh-pd
 https://transparency.flocksafety.com/wilton-ct-pd
 https://transparency.flocksafety.com/windsor-co-pd
 https://transparency.flocksafety.com/windsor-ct-pd
+https://transparency.flocksafety.com/windsor-va-pd
 https://transparency.flocksafety.com/winters-ca-pd-
 https://transparency.flocksafety.com/wisconsin-rapids-wi-pd
 https://transparency.flocksafety.com/wise-county-va-so

@@ -15,7 +15,7 @@ import random
 #         return False
 
 PROXY = {
-    'server': 'http://brd.superproxy.io:33335',
+    'server': 'https://brd.superproxy.io:33335',
     'username': f'brd-customer-hl_489430ac-zone-residential_proxy1-session-{time.time()}',
     'password': 'l6y5810wob0y'
 }
@@ -25,10 +25,10 @@ def scrape_flock_data(page, url):
     """Scrapes data from a transparency portal."""
     try:
         # navigate to url
-        page.goto(url, timeout=30000)
+        page.goto(url, timeout=60000, wait_until="domcontentloaded")
         
         # wait for content to load
-        page.wait_for_selector('.label', timeout=10000)
+        page.wait_for_timeout(3000)
         
         # extract all labels and values
         labels = page.locator('.label').all_inner_texts()
@@ -93,14 +93,15 @@ def scrape_multiple_sites(urls, output_file='../data/flock-data.csv'):
                 stealth.apply_stealth_sync(page)
 
             time.sleep(random.uniform(3, 6))
+            print(f"{place}: {list(site_data.keys())[:10]}")
         
         browser.close()
     
     df = pd.DataFrame.from_dict(all_data)
-    # print(df)
+    print(df)
     df.to_csv(output_file)
 
 if __name__ == "__main__":
-    with open('../data/total_urls.txt', 'r') as f:
+    with open('../data/discovered_urls_google.txt', 'r') as f:
         urls = [line.strip() for line in f if line.strip()]
-    data = scrape_multiple_sites(urls)
+    data = scrape_multiple_sites(urls, output_file='../data/flock-data-1.csv')
