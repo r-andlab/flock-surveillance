@@ -133,7 +133,7 @@ print(f"Number of unique fields: {len(df.index)}")
 
 category_counts = df.count(axis=1).sort_values(ascending=False)
 top_cats = category_counts[:20]
-print(category_counts[:24])
+print(category_counts[:60])
 # What's Detected                     581
 # Prohibited Uses                     579
 # What's Not Detected                 578
@@ -161,9 +161,9 @@ print(f"Median number of fields filled is {entry_counts.median()}")
 # print(df.iloc[303]["place"])
 
 # new analyses
-detected_df = analyze_list_field(df, "What's Detected", top_n=15)
-not_detected_df = analyze_list_field(df, "What's Not Detected", top_n=15)
-prohibited_df = analyze_list_field(df, "Prohibited Uses", top_n=20)
+detected_df = analyze_list_field(df, "What's Detected", top_n=30)
+not_detected_df = analyze_list_field(df, "What's Not Detected", top_n=30)
+prohibited_df = analyze_list_field(df, "Prohibited Uses", top_n=30)
 
 print("\n=== Numeric Means ===")
 analyze_numeric_field(df, "Vehicles detected in the last 30 days")

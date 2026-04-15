@@ -1,0 +1,84 @@
+topic, item, count, rate
+what's detected, license plates, 846, 0.986014
+what's detected, vehicles, 842, 0.981352
+what's detected, bicycles, 3, 0.003497
+what's detected, trailers, 3, 0.003497
+what's detected, vehicle characteristics, 3, 0.003497
+what's detected, license plates and vehicles, 3, 0.003497
+what's detected, rear of vehicle, 2, 0.002331
+what's detected, license plates and vehicles in publicly accessible areas, 1, 0.001166
+what's detected, such as roadways, 1, 0.001166
+what's detected, license plates and general descriptions of vehicles, 1, 0.001166
+what's detected, the license place of vehicles traveling into or out of the town of duck, 1, 0.001166
+what's detected, gunshots, 1, 0.001166
+what's detected, live video, 1, 0.001166
+what's detected, vehicles in plain view on public roadways, 1, 0.001166
+what's detected, only vehicles and publicly displayed license plates, 1, 0.001166
+what's detected, license plates - front and rear of vehicles, 1, 0.001166
+what's detected, license plate images and vehicle images, 1, 0.001166
+what's detected, stolen license plates, 1, 0.001166
+what's detected, stolen vehicles, 1, 0.001166
+what's detected, warrant related vehicles, 1, 0.001166
+what's detected, license plates and vehicle identification information, 1, 0.001166
+what's detected, license plates and vehicle data only, 1, 0.001166
+what's detected, still images of vehicles and license plates, 1, 0.001166
+what's not detected, gender, 849, 0.994145
+what's not detected, race, 849, 0.994145
+what's not detected, facial recognition, 848, 0.992974
+what's not detected, people, 844, 0.988290
+what's not detected, vehicle speed, 5, 0.005855
+what's not detected, ethnicity, 3, 0.003513
+what's not detected, people/faces, 2, 0.002342
+what's not detected, traffic violations, 2, 0.002342
+what's not detected, personal identifying information, 1, 0.001171
+what's not detected, video footage, 1, 0.001171
+what's not detected, registered owner or occupant personal identifying information, 1, 0.001171
+what's not detected, or video, 1, 0.001171
+what's not detected, the identify, 1, 0.001171
+what's not detected, or race of individuals, 1, 0.001171
+what's not detected, pictures of the driver or occupants of a vehicle, 1, 0.001171
+what's not detected, personally identifiable information (pii) like names and addresses of vehicle owners, 1, 0.001171
+what's not detected, and/or the speed of vehicles, 1, 0.001171
+what's not detected, immigration status, 1, 0.001171
+what's not detected, minor traffic infraction, 1, 0.001171
+what's not detected, not a traffic enforcement tool and does not issue citations, 1, 0.001171
+what's not detected, and sound. the system does not provide any personal data including, 1, 0.001171
+what's not detected, name(s), 1, 0.001171
+what's not detected, address(es), 1, 0.001171
+what's not detected, date(s) of birth, 1, 0.001171
+what's not detected, driver's license, 1, 0.001171
+what's not detected, social security or phone numbers, 1, 0.001171
+what's not detected, gender and race, 1, 0.001171
+what's not detected, license plate return information, 1, 0.001171
+what's not detected, etc, 1, 0.001171
+what's not detected, personal information, 1, 0.001171
+prohibited uses, usage based solely on a protected class (i.e. race, sex, religion), 831, 0.973068
+prohibited uses, immigration enforcement, 823, 0.963700
+prohibited uses, personal use, 822, 0.962529
+prohibited uses, traffic enforcement, 807, 0.944965
+prohibited uses, harassment or intimidation, 522, 0.611241
+prohibited uses, harrassment or intimidation, 317, 0.371194
+prohibited uses, or personal use, 12, 0.014052
+prohibited uses, speed enforcement, 7, 0.008197
+prohibited uses, usage based solely on a protected class (i.e., race, sex, religion), 5, 0.005855
+prohibited uses, disability, 5, 0.005855
+prohibited uses, gender, 4, 0.004684
+prohibited uses, national origin, 4, 0.004684
+prohibited uses, religion, 4, 0.004684
+prohibited uses, and personal use, 4, 0.004684
+prohibited uses, color, 3, 0.003513
+prohibited uses, lifestyle, 3, 0.003513
+prohibited uses, race, 3, 0.003513
+prohibited uses, sex, 3, 0.003513
+prohibited uses, clinics, 3, 0.003513
+prohibited uses, mental health providers, 3, 0.003513
+prohibited uses, destination, 3, 0.003513
+prohibited uses, harassment, 3, 0.003513
+prohibited uses, ethnicity, 3, 0.003513
+prohibited uses, age, 3, 0.003513
+prohibited uses, sexual orientation, 3, 0.003513
+prohibited uses, or for any other use prohibited by related department policies, 2, 0.002342
+prohibited uses, civil immigration enforcement, 2, 0.002342
+prohibited uses, including commissioned officers and civilian personnel, 2, 0.002342
+prohibited uses, creed, 2, 0.002342
+prohibited uses, criminal history, 2, 0.002342
